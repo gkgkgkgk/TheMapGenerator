@@ -74,53 +74,34 @@ public final int height = 700;
      
    }
      }
-   int modifier = 0;
+  
    public Color getColor(){
      Color water = new Color(28,107,160);
-       Color grass = new Color(44,176,55);
-       Color plains = new Color(255, 196, 0);
-       Color mountain = new Color(167, 164, 157);
+       Color grass = new Color(0,200,0);
      Color newColor = Color.RED;
      Random random = new Random();
-     int switchInt = random.nextInt(11)+1;
-     //int modifier = random.nextInt(6);
+     int modifier = random.nextInt(6);
      //5 settings: mountain, river, plains, snow, grass
-     //mountains to snow to grass to rivers to plains
-     
+
      switch(modifier){
        case 0:
-          newColor = (mountain);
-          if(switchInt < 8){
-            modifier = random.nextInt(5);
-          }
+          newColor = (Color.GRAY);
      break;
        case 1:
-         newColor = (Color.WHITE);
-         if(switchInt < 8){
-            modifier = random.nextInt(5);
-          }
+         newColor = (grass);
          break;
        case 2:
-         newColor = (grass);
-          if(switchInt < 2){
-            modifier = random.nextInt(5);
-          }
+         newColor = (water);
          break;
        case 3:
-         newColor = (water);
-         if(switchInt < 5){
-            modifier = random.nextInt(5);
-          }
+         newColor = (Color.YELLOW);
          break;
        case 4:
-         newColor = (plains);
-         if(switchInt < 3){
-            modifier = random.nextInt(5);
-          }
+         newColor = (Color.WHITE);
          break;
         
        default:
-         newColor = grass;
+         newColor = Color.GREEN;
          break;
     
      }
