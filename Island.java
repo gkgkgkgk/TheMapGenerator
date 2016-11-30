@@ -18,8 +18,6 @@ public class Island extends JFrame {
         setResizable(false);
         validate();
     }
-
-
     class DrawPane extends JPanel {
         public void paintComponent(Graphics g) {
 
@@ -27,7 +25,7 @@ public class Island extends JFrame {
             Color back = new Color(28, 107, 160);
             Color land = new Color(0, 200, 0);
             setBackground(back);
-            int amount = 100000;
+            int amount = 75000;
             //array of x = x val for 1
             //array of y = y val for 1
             //this is a comment

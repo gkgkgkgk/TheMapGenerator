@@ -27,7 +27,7 @@ public class Island extends JFrame {
             Color back = new Color(28, 107, 160);
             Color land = new Color(0, 200, 0);
             setBackground(back);
-            int amount = 100000;
+            int amount = 150000;
             //array of x = x val for 1
             //array of y = y val for 1
             //this is a comment
@@ -39,14 +39,12 @@ public class Island extends JFrame {
             int directionX = 1;
             int directionY = 1;
             int padding = 50;
-            //g.setColor(Color.WHITE);
-            //g.fillRect(placeHolderX, placeHolderY, 5, 5);
             for (int k = 0; k < amount; k++) {
-                if (placeHolderX >= width - padding || placeHolderX <= 0 + padding) {
+                if (placeHolderX >= (width - padding) || placeHolderX <= padding) {
                     placeHolderX = width / 2;
                 }
-                if (placeHolderY >= height - padding || placeHolderY <= 0 + padding) {
-                    placeHolderX = height / 2;
+                if (placeHolderY >= (height - padding) || placeHolderY <= padding) {
+                    placeHolderY = height / 2;
                 }
                 x[k] = placeHolderX;
                 y[k] = placeHolderY;
@@ -87,10 +85,10 @@ public class Island extends JFrame {
             } else {
                 newColor = mountain;
             }
-        } else if (y < height - (height/4) && y > height - (height/4) || y > (height/5) && y < (height/4)) {
-            if (switchInt < 60) {
+        } else if (y < height - (height/5) && y > height - (height/4) || y > (height/5) && y < (height/4)) {
+            if (switchInt < 50) {
                 newColor = Color.WHITE;
-            } else if (switchInt >= 60 && switchInt <= 85) {
+            } else if (switchInt >= 50 && switchInt <= 90) {
                 newColor = grass;
             } else {
                 newColor = mountain;
@@ -102,7 +100,9 @@ public class Island extends JFrame {
             } else {
                 newColor = grass;
             }
-        } else {
+        } 
+        
+        else {
             //primarily grassland, some rivers and some plains
             if (switchInt < 50) {
                 newColor = grass;
