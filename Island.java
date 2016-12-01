@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.lang.*;
 import java.awt.*;
 public class Island extends JFrame {
+    private ArrayList<City> cities = new ArrayList<>();
     public int width = 1000;
     public final int height = 700;
     public int placeHolderX;
@@ -18,14 +19,25 @@ public class Island extends JFrame {
         setResizable(false);
         validate();
     }
+    
+    
+    public void drawCity(City c, Graphics g, int x, int y) {
+      g.setColor(Color.BLACK);
+      g.setFont(new Font("TimesRoman", Font.BOLD, 15));
+      g.fillRect(x,y,c.sGetter(),c.sGetter());
+      g.drawString(c.nGetter(), x,y-3);
+    }
+    
     class DrawPane extends JPanel {
         public void paintComponent(Graphics g) {
 
             super.paintComponent(g);
+          
+
             Color back = new Color(28, 107, 160);
             Color land = new Color(0, 200, 0);
             setBackground(back);
-            int amount = 75000;
+            int amount = 75000;  //default 75000
             //array of x = x val for 1
             //array of y = y val for 1
             //this is a comment
@@ -61,6 +73,13 @@ public class Island extends JFrame {
                 g.setColor(getColor(x[i], y[i]));
                 g.fillRect(x[i], y[i], 3, 3);
             }
+
+            cities.add(new City(5, new cityNameGenerator().nameGetter(5)));
+            Random rand = new Random();
+             for (City c : cities) {
+               System.out.println("City Made!");
+            drawCity(c, g, x[rand.nextInt(cities.size())],y[0]);
+          }
 
         }
     }
