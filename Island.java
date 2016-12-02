@@ -26,7 +26,7 @@ public class Island extends JFrame {
     
     public void drawCity(City c, Graphics g, int x, int y) {
       g.setColor(Color.BLACK);
-      g.setFont(new Font("TimesRoman", Font.BOLD, 15));
+      g.setFont(new Font("TimesRoman", Font.BOLD, 17));
       g.fillRect(x,y,c.sGetter(),c.sGetter());
       g.drawString(c.nGetter(), x,y-3);
     }
