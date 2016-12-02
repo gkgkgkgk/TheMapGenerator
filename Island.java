@@ -5,19 +5,22 @@ import javax.swing.*;
 import java.lang.*;
 import java.awt.*;
 public class Island extends JFrame {
-    private ArrayList<City> cities = new ArrayList<>();
-    public int width = 1000;
-    public final int height = 700;
     public int placeHolderX;
     public int placeHolderY;
+    numberBank bank = new numberBank();
+    public int width = bank.getWidth();
+    public final int height = bank.getHeight();
+    public int x[] = bank.getX();
+    public int y[] = bank.getY();
+    public ArrayList<City> cities = bank.getCities();
     public Island() {
+              setContentPane(new DrawPane());
         setLayout(null);
         setSize(width, height);
-        setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(new DrawPane());
         setResizable(false);
         validate();
+                setVisible(true);
     }
     
     
@@ -30,56 +33,24 @@ public class Island extends JFrame {
     
     class DrawPane extends JPanel {
         public void paintComponent(Graphics g) {
-
-            super.paintComponent(g);
-          
-
+          //System.out.println("paintComponent Ran");
+           super.paintComponent(g);
             Color back = new Color(28, 107, 160);
             Color land = new Color(0, 200, 0);
             setBackground(back);
-            int amount = 75000;  //default 75000
-            //array of x = x val for 1
-            //array of y = y val for 1
-            //this is a comment
-            placeHolderX = width / 2;
-            placeHolderY = height / 2;
-            int[] x = new int[amount];
-            int[] y = new int[amount];
-            Random random = new Random();
-            int directionX = 1;
-            int directionY = 1;
-            int padding = 50;
-            for (int k = 0; k < amount; k++) {
-                if (placeHolderX >= (width - padding) || placeHolderX <= padding) {
-                    placeHolderX = width / 2;
-                }
-                if (placeHolderY >= (height - padding) || placeHolderY <= padding) {
-                    placeHolderY = height / 2;
-                }
-                x[k] = placeHolderX;
-                y[k] = placeHolderY;
-
-                directionX = random.nextInt(7) - 3;
-                directionY = random.nextInt(7) - 3;
-                placeHolderX += directionX;
-                placeHolderY += directionY;
-
-                g.setColor(land);
-
-            }
-
-            g.setColor(land);
+           int amount = bank.getAmount();
             for (int i = 0; i < amount; i++) {
                 g.setColor(getColor(x[i], y[i]));
                 g.fillRect(x[i], y[i], 3, 3);
             }
-
-            cities.add(new City(5, new cityNameGenerator().nameGetter(5)));
             Random rand = new Random();
              for (City c : cities) {
-               System.out.println("City Made!");
-            drawCity(c, g, x[rand.nextInt(cities.size())],y[0]);
+               int tempX =c.xGet();
+               int tempY = c.yGet();
+               //System.out.println("City Made! " + tempX + "  " +tempY + " " + c.nGetter() );
+               drawCity(c, g, tempX, tempY);
           }
+         //System.out.println("Size: " + cities.size());
 
         }
     }

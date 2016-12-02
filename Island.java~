@@ -23,7 +23,7 @@ public class Island extends JFrame {
     
     public void drawCity(City c, Graphics g, int x, int y) {
       g.setColor(Color.BLACK);
-      g.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+      g.setFont(new Font("TimesRoman", Font.BOLD, 15));
       g.fillRect(x,y,c.sGetter(),c.sGetter());
       g.drawString(c.nGetter(), x,y-3);
     }
@@ -37,7 +37,7 @@ public class Island extends JFrame {
             Color back = new Color(28, 107, 160);
             Color land = new Color(0, 200, 0);
             setBackground(back);
-            int amount = 75000;
+            int amount = 75000;  //default 75000
             //array of x = x val for 1
             //array of y = y val for 1
             //this is a comment
@@ -75,8 +75,10 @@ public class Island extends JFrame {
             }
 
             cities.add(new City(5, new cityNameGenerator().nameGetter(5)));
+            Random rand = new Random();
              for (City c : cities) {
-            drawCity(c, g, x[5],y[5]);
+               System.out.println("City Made!");
+            drawCity(c, g, x[rand.nextInt(cities.size())],y[0]);
           }
 
         }

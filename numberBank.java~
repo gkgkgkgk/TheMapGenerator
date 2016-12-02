@@ -1,0 +1,7 @@
+class numberBank{
+
+  public numberBank(){
+  
+  }
+
+}
