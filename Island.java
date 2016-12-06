@@ -50,20 +50,6 @@ public class Island extends JFrame {
                 g.setColor(getColor(x[i], y[i]));
                 g.fillRect(x[i], y[i], 3, 3);
             }
-            for (City c: cities) {
-                int tempX = c.xGet();
-                int tempY = c.yGet();
-                City closest = c;
-                double distance = 1000000;
-                for(int i = 0; i < cities.size(); i ++){
-                  double closeNum = distance;
-                  distance = Math.pow((tempX - (double)cities.get(i).xGet()), 2.0) + Math.pow((tempY - (double)cities.get(i).yGet()), 2.0);
-                  if(Math.sqrt(distance) < closeNum){
-                  closest = cities.get(i);
-                  }
-                }
-            makePath(c, closest, g);
-            }
             Random rand = new Random();
             for (City c: cities) {
                 int tempX = c.xGet();
@@ -72,9 +58,7 @@ public class Island extends JFrame {
                 drawCity(c, g, tempX, tempY);
             }
             //System.out.println("Size: " + cities.size());
-            
-
-
+           makePath(cities.get(1), cities.get(3));
         }
     }
     int modifier = 0;
@@ -86,14 +70,27 @@ public class Island extends JFrame {
         }
     }
     
-    public void makePath(City start, City end, Graphics g){
-    int xpos = start.xGet();
-    int ypos = start.yGet();
-    int endX = end.xGet();
-    int endY = end.yGet();
-    g.setColor(Color.RED);
-    g.drawLine(xpos, ypos, endX, endY);
+    public void makePath(City c, City d){
+    //Path logic here!
+      int startx = c.xGet();
+      int starty = c.yGet();
+      int endx = c.xGet();
+      int endy = c.yGet();
+      int placex = startx;
+      int placey = starty;
+      double distance = Math.sqrt(Math.pow((startx-endx), 2.0) + (double)Math.pow((starty-endy), 2.0));
+      while(placex != endx && placey != endy){
+        if(Math.sqrt(Math.pow((placex+1-endx), 2.0) + (double)Math.pow((placey+1-endy), 2.0))< distance){
+        placex +=1;
+        placey +=1;
+        }
+        else if(Math.sqrt(Math.pow((placex-1-endx), 2.0) + (double)Math.pow((placey+1-endy), 2.0))< distance){
+        placex -=1;
+        placey +=1;
+        }
+      }
     }
+    
     
     public Color getColor(int x, int y) {
         Color water = new Color(28, 107, 160);

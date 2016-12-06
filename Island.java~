@@ -58,12 +58,7 @@ public class Island extends JFrame {
                 drawCity(c, g, tempX, tempY);
             }
             //System.out.println("Size: " + cities.size());
-            for (City c: cities) {
-                int tempX = c.xGet();
-                int tempY = c.yGet();
-                //System.out.println("City Made! " + tempX + "  " +tempY + " " + c.nGetter() );
-            makePath(cities.get(0), c, g);
-            }
+            
 
 
         }
@@ -75,15 +70,6 @@ public class Island extends JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-    }
-    
-    public void makePath(City start, City end, Graphics g){
-    int xpos = start.xGet();
-    int ypos = start.yGet();
-    int endX = end.xGet();
-    int endY = end.yGet();
-    g.setColor(Color.RED);
-    g.drawLine(xpos, ypos, endX, endY);
     }
     
     public Color getColor(int x, int y) {
