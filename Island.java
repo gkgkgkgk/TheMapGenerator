@@ -6,6 +6,9 @@ import java.lang.*;
 import java.awt.*;
 import java.io.*;
 import java.io.InputStream;
+import java.awt.geom.Line2D;
+
+
 public class Island extends JFrame {
     public int placeHolderX;
     public int placeHolderY;
@@ -47,6 +50,20 @@ public class Island extends JFrame {
                 g.setColor(getColor(x[i], y[i]));
                 g.fillRect(x[i], y[i], 3, 3);
             }
+            for (City c: cities) {
+                int tempX = c.xGet();
+                int tempY = c.yGet();
+                City closest = c;
+                double distance = 1000000;
+                for(int i = 0; i < cities.size(); i ++){
+                  double closeNum = distance;
+                  distance = Math.pow((tempX - (double)cities.get(i).xGet()), 2.0) + Math.pow((tempY - (double)cities.get(i).yGet()), 2.0);
+                  if(Math.sqrt(distance) < closeNum){
+                  closest = cities.get(i);
+                  }
+                }
+            makePath(c, closest, g);
+            }
             Random rand = new Random();
             for (City c: cities) {
                 int tempX = c.xGet();
@@ -55,6 +72,8 @@ public class Island extends JFrame {
                 drawCity(c, g, tempX, tempY);
             }
             //System.out.println("Size: " + cities.size());
+            
+
 
         }
     }
@@ -66,6 +85,16 @@ public class Island extends JFrame {
             ex.printStackTrace();
         }
     }
+    
+    public void makePath(City start, City end, Graphics g){
+    int xpos = start.xGet();
+    int ypos = start.yGet();
+    int endX = end.xGet();
+    int endY = end.yGet();
+    g.setColor(Color.RED);
+    g.drawLine(xpos, ypos, endX, endY);
+    }
+    
     public Color getColor(int x, int y) {
         Color water = new Color(28, 107, 160);
         Color grass = new Color(44, 176, 55);

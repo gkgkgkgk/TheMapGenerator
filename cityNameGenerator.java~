@@ -19,6 +19,7 @@ class cityNameGenerator {
             "North ",
             "West ",
             "East "
+          
         };
         String[] pre = {
             "Mel",
@@ -32,7 +33,11 @@ class cityNameGenerator {
             "Spring",
             "Nan",
             "San",
-            "Cape"
+            "Cape",
+            "Fair",
+          "Rich",
+          "Kings",
+   
         };
         String[] suf = {
             "lin",
@@ -51,7 +56,12 @@ class cityNameGenerator {
             "burg",
             "bury",
             "chester",
-            "town"
+            "town",
+          "park",
+          "side",
+          "wood",
+          "gelos",
+          "ston"
         };
         Random random = new Random();
         if (random.nextInt(10) < 5) {

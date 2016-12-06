@@ -3,7 +3,7 @@ class City {
     private String name;
     private int x = 0;
     private int y = 0;
-    public City(int xPos, int yPos, int aS, String aN) {
+    public City(int xPos, int yPos, int aS, String aN){
         size = aS;
         name = aN;
         x = xPos;
