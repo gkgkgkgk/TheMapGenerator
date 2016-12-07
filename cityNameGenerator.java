@@ -37,7 +37,18 @@ class cityNameGenerator {
             "Fair",
           "Rich",
           "Kings",
-   
+          "Glen",
+          "Bost",
+          "Rekt",
+          "Ply",
+          "Wat",
+          "Great",
+          "Wig",
+          "Black",
+          "White",
+          "Red",
+          "Blue",
+          "Wes"
         };
         String[] suf = {
             "lin",
@@ -62,7 +73,21 @@ class cityNameGenerator {
           "wood",
           "gelos",
           "ston",
-          "port"
+          "port",
+          "dale",
+          "thorp",
+          "kirk",
+          "gate",
+          "on",
+          "berg",
+          "cott",
+          "hill",
+          "holm",
+          "mouth",
+          "ness",
+          "pool",
+          "ster",
+          "wick"
         };
         Random random = new Random();
         if (random.nextInt(10) < 5) {

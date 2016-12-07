@@ -18,15 +18,16 @@ public class Island extends JFrame {
     public int x[] = bank.getX();
     public int y[] = bank.getY();
     public ArrayList < City > cities = bank.getCities();
+        public ArrayList < Road > roads = bank.getRoads();
         Font font;
     public Island() {
         setContentPane(new DrawPane());
         setLayout(null);
-        setSize(width, height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         validate();
         setVisible(true);
+        setSize(width, height);
     }
 
 
@@ -37,10 +38,17 @@ public class Island extends JFrame {
         g.fillRect(x, y, c.sGetter(), c.sGetter());
         g.drawString(c.nGetter(), x, y - 3);
     }
-
+ public void drawRoad(Road road, Graphics g) {
+        g.setColor(Color.BLACK);
+        int[] x = road.getX();
+        int[] y = road.getY();
+        for(int i = 0; i <  x.length; i ++){
+        g.fillRect(x[i], y[i], 2,2);
+        }
+    }
     class DrawPane extends JPanel {
         public void paintComponent(Graphics g) {
-            //System.out.println("paintComponent Ran");
+            System.out.println("paintComponent Ran");
             super.paintComponent(g);
             Color back = new Color(28, 107, 160);
             Color land = new Color(0, 200, 0);
@@ -57,10 +65,8 @@ public class Island extends JFrame {
                 //System.out.println("City Made! " + tempX + "  " +tempY + " " + c.nGetter() );
                 drawCity(c, g, tempX, tempY);
             }
+            drawRoad(roads.get(0), g);
             //System.out.println("Size: " + cities.size());
-            
-
-
         }
     }
     int modifier = 0;
@@ -71,6 +77,9 @@ public class Island extends JFrame {
             ex.printStackTrace();
         }
     }
+    
+    
+    
     
     public Color getColor(int x, int y) {
         Color water = new Color(28, 107, 160);

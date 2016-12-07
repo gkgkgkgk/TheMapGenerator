@@ -61,7 +61,8 @@ class cityNameGenerator {
           "side",
           "wood",
           "gelos",
-          "ston"
+          "ston",
+          "port"
         };
         Random random = new Random();
         if (random.nextInt(10) < 5) {

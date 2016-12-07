@@ -18,15 +18,16 @@ public class Island extends JFrame {
     public int x[] = bank.getX();
     public int y[] = bank.getY();
     public ArrayList < City > cities = bank.getCities();
+        public ArrayList < Road > roads = bank.getRoads();
         Font font;
     public Island() {
         setContentPane(new DrawPane());
         setLayout(null);
-        setSize(width, height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         validate();
         setVisible(true);
+        setSize(width, height);
     }
 
 
@@ -37,10 +38,17 @@ public class Island extends JFrame {
         g.fillRect(x, y, c.sGetter(), c.sGetter());
         g.drawString(c.nGetter(), x, y - 3);
     }
-
+ public void drawRoad(Road road, Graphics g) {
+        g.setColor(Color.RED);
+        int[] x = road.getX();
+        int[] y = road.getY();
+        for(int i = 0; i <  x.length; i ++){
+        g.fillRect(x[i], y[i], 2,2);
+        }
+    }
     class DrawPane extends JPanel {
         public void paintComponent(Graphics g) {
-            //System.out.println("paintComponent Ran");
+            System.out.println("paintComponent Ran");
             super.paintComponent(g);
             Color back = new Color(28, 107, 160);
             Color land = new Color(0, 200, 0);
@@ -50,6 +58,9 @@ public class Island extends JFrame {
                 g.setColor(getColor(x[i], y[i]));
                 g.fillRect(x[i], y[i], 3, 3);
             }
+          for(Road r:roads){
+          drawRoad(r, g);
+          }
             Random rand = new Random();
             for (City c: cities) {
                 int tempX = c.xGet();
@@ -58,7 +69,6 @@ public class Island extends JFrame {
                 drawCity(c, g, tempX, tempY);
             }
             //System.out.println("Size: " + cities.size());
-           makePath(cities.get(1), cities.get(3));
         }
     }
     int modifier = 0;
@@ -70,26 +80,7 @@ public class Island extends JFrame {
         }
     }
     
-    public void makePath(City c, City d){
-    //Path logic here!
-      int startx = c.xGet();
-      int starty = c.yGet();
-      int endx = c.xGet();
-      int endy = c.yGet();
-      int placex = startx;
-      int placey = starty;
-      double distance = Math.sqrt(Math.pow((startx-endx), 2.0) + (double)Math.pow((starty-endy), 2.0));
-      while(placex != endx && placey != endy){
-        if(Math.sqrt(Math.pow((placex+1-endx), 2.0) + (double)Math.pow((placey+1-endy), 2.0))< distance){
-        placex +=1;
-        placey +=1;
-        }
-        else if(Math.sqrt(Math.pow((placex-1-endx), 2.0) + (double)Math.pow((placey+1-endy), 2.0))< distance){
-        placex -=1;
-        placey +=1;
-        }
-      }
-    }
+    
     
     
     public Color getColor(int x, int y) {
