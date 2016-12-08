@@ -2,7 +2,7 @@ import java.util.*;
 class numberBank {
     private ArrayList < City > cities = new ArrayList < > ();
     private ArrayList < Road > roads = new ArrayList < > ();
-    int amount = 200000;
+    int amount = 500000;
     int[] x = new int[amount];
     int[] y = new int[amount];
     int width = 1000;
@@ -38,9 +38,9 @@ class numberBank {
         cities.add(new City(x[k], y[k], 5, new cityNameGenerator().nameGetter(5)));
             }
         }
-        roads.add(new Road(cities.get(0), cities.get(1)), x, y);
-        roads.add(new Road(cities.get(3), cities.get(2)), x, y);
-        roads.add(new Road(cities.get(5), cities.get(4)), x, y);
+        roads.add(new Road(cities.get(0), cities.get(1), x, y));
+        roads.add(new Road(cities.get(3), cities.get(2), x, y));
+        roads.add(new Road(cities.get(5), cities.get(4), x, y));
     }
 
     public int getAmount() {

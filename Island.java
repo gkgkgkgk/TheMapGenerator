@@ -84,7 +84,7 @@ public class Island extends JFrame {
     
     
     public Color getColor(int x, int y) {
-        Color water = new Color(28, 107, 160);
+        Color water = new Color(10, 60, 160);
         Color grass = new Color(44, 176, 55);
         Color plains = new Color(255, 196, 0);
         Color mountain = new Color(167, 164, 157);

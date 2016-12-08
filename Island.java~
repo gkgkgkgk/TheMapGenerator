@@ -39,7 +39,7 @@ public class Island extends JFrame {
         g.drawString(c.nGetter(), x, y - 3);
     }
  public void drawRoad(Road road, Graphics g) {
-        g.setColor(Color.BLACK);
+        g.setColor(Color.RED);
         int[] x = road.getX();
         int[] y = road.getY();
         for(int i = 0; i <  x.length; i ++){
@@ -58,6 +58,9 @@ public class Island extends JFrame {
                 g.setColor(getColor(x[i], y[i]));
                 g.fillRect(x[i], y[i], 3, 3);
             }
+          for(Road r:roads){
+          drawRoad(r, g);
+          }
             Random rand = new Random();
             for (City c: cities) {
                 int tempX = c.xGet();
@@ -65,7 +68,6 @@ public class Island extends JFrame {
                 //System.out.println("City Made! " + tempX + "  " +tempY + " " + c.nGetter() );
                 drawCity(c, g, tempX, tempY);
             }
-            drawRoad(roads.get(0), g);
             //System.out.println("Size: " + cities.size());
         }
     }

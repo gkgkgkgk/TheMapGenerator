@@ -38,7 +38,7 @@ class numberBank {
         cities.add(new City(x[k], y[k], 5, new cityNameGenerator().nameGetter(5)));
             }
         }
-        roads.add(new Road(cities.get(0), cities.get(1), x, y));
+        roads.add(new Road(cities.get(0), cities.get(0), x, y));
         roads.add(new Road(cities.get(3), cities.get(2), x, y));
         roads.add(new Road(cities.get(5), cities.get(4), x, y));
     }

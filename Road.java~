@@ -36,24 +36,37 @@ public class Road {
       placey -= 1;
      }
     }
-
-   } if (placey == endy) {
+   }
+   if (placey == endy) {
     if (Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey - endy), 2.0)) < distance) {
      placex -= 1;
     } else if (Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey - endy), 2.0)) < distance) {
      placex += 1;
     }
    } else {
-    if (Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) < distance) {
-     placex += 1;
-     placey += 1;
-    } else if (Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) < distance) {
+
+    if (Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) < distance 
+          && Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) 
+          && Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) 
+          && Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0))) {
      placex += 1;
      placey -= 1;
-    } else if (Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) < distance) {
+    } else if (Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) < distance 
+                 && Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) 
+                 && Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) 
+                 && Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0))) {
      placex -= 1;
      placey += 1;
-    } else if (Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) < distance) {
+    } else if (Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) < distance 
+                 && Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) 
+                 && Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) 
+                 && Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0))) {
+     placex += 1;
+     placey += 1;
+    } else if (Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) < distance 
+                 && Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) 
+                 && Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey + 1 - endy), 2.0)) 
+                 && Math.sqrt(Math.pow((placex - 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0)) < Math.sqrt(Math.pow((placex + 1 - endx), 2.0) + (double) Math.pow((placey - 1 - endy), 2.0))) {
      placex -= 1;
      placey -= 1;
     }

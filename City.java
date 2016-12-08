@@ -3,6 +3,8 @@ class City {
     private String name;
     private int x = 0;
     private int y = 0;
+    private City cityOne;
+    private City cityTwo;
     public City(int xPos, int yPos, int aS, String aN){
         size = aS;
         name = aN;
@@ -22,4 +24,5 @@ class City {
     public String nGetter() {
         return name;
     }
+    
 }

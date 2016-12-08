@@ -10,7 +10,7 @@ class cityNameGenerator {
 
     public String nameGetter(int length) {
         String[] prefix = {
-            "Los",
+            "Los ",
             "Saint ",
             "New ",
             "Old ",
@@ -87,7 +87,10 @@ class cityNameGenerator {
           "ness",
           "pool",
           "ster",
-          "wick"
+          "wick",
+          "stead",
+          "worth",
+          "dom"
         };
         Random random = new Random();
         if (random.nextInt(10) < 5) {
