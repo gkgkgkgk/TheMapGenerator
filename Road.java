@@ -32,7 +32,9 @@ public class Road {
   int placey = starty;
   double distance = Math.sqrt(Math.pow((startx - endx), 2.0) + (double) Math.pow((starty - endy), 2.0));
   boolean stop = false;
+  int randomCounter = 0;
   while (!stop) {
+    Random random = new Random();
     int rand = 1;
     int rand2 = 1;
     //rand = 1;
@@ -41,51 +43,68 @@ public class Road {
     if (placex == endx) {
      if (Math.sqrt(Math.pow((placex - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) < distance) {
       placey += rand;
+               placex += random.nextInt(3)-1;
      } else if (Math.sqrt(Math.pow((placex - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) < distance) {
       placey -= rand;
+               placex += random.nextInt(3)-1;
      }
     }
-   }
    if (placey == endy) {
     if (Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey - endy), 2.0)) < distance) {
      placex -= rand;
+     placey += random.nextInt(3)-1;
     } else if (Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey - endy), 2.0)) < distance) {
      placex += rand;
+         placey += random.nextInt(3)-1;
     }
-   } else {
+   }
+   }
+   else {
 
     if (Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) < distance 
           && Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) 
           && Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) 
           && Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0))
           //&& points.contains(new Point(placex+1, placey -1))
+
        ) {
      placex += rand;
      placey -= rand;
+     placey += random.nextInt(3)-1;
+     placex += random.nextInt(3)-1;
     } else if (Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) < distance 
                  && Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) 
                  && Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) 
                  && Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex +rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0))
                  //&& points.contains(new Point(placex-1, placey +1))
+
               ) {
      placex -= rand;
      placey += rand;
+     placex += random.nextInt(3)-1;
+          placey += random.nextInt(3)-1;
     } else if (Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) < distance 
                  && Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) 
                  && Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex -rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) 
                  && Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0))
                  //&& points.contains(new Point(placex+1, placey +1))
+
               ) {
      placex += rand;
      placey += rand;
+      placex += random.nextInt(3)-1;
+          placey += random.nextInt(3)-1;
     } else if (Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) < distance 
                  && Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) 
                  && Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey + rand2 - endy), 2.0)) 
                  && Math.sqrt(Math.pow((placex - rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0)) < Math.sqrt(Math.pow((placex + rand2 - endx), 2.0) + (double) Math.pow((placey - rand2 - endy), 2.0))
                  //&& points.contains(new Point(placex-1, placey -1))
+
               ) {
      placex -= rand;
      placey -= rand;
+      placex += random.nextInt(3)-1;
+          placey += random.nextInt(3)-1;
     }
    }
    distance = Math.sqrt(Math.pow((placex - endx), 2.0) + (double) Math.pow((placey - endy), 2.0));
