@@ -18,8 +18,9 @@ public class Island extends JFrame {
     public int x[] = bank.getX();
     public int y[] = bank.getY();
     public ArrayList < City > cities = bank.getCities();
-        public ArrayList < Road > roads = bank.getRoads();
-        Font font;
+    public ArrayList < Road > roads = bank.getRoads();
+    Font font;
+    Color roadColor = new Color(120,80,60);
     public Island() {
         setContentPane(new DrawPane());
         setLayout(null);
@@ -39,7 +40,7 @@ public class Island extends JFrame {
         g.drawString(c.nGetter(), x, y - 3);
     }
  public void drawRoad(Road road, Graphics g) {
-        g.setColor(Color.RED);
+        g.setColor(roadColor);
         int[] x = road.getX();
         int[] y = road.getY();
         for(int i = 0; i <  x.length; i ++){

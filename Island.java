@@ -8,7 +8,6 @@ import java.io.*;
 import java.io.InputStream;
 import java.awt.geom.Line2D;
 
-
 public class Island extends JFrame {
     public int placeHolderX;
     public int placeHolderY;
@@ -83,7 +82,8 @@ public class Island extends JFrame {
     
     
     
-    
+    int regulator = 1;
+    Random randomNumber = new Random();
     public Color getColor(int x, int y) {
         Color water = new Color(10, 60, 160);
         Color grass = new Color(44, 176, 55);
@@ -92,6 +92,11 @@ public class Island extends JFrame {
         Color newColor = Color.RED;
         Random random = new Random();
         int switchInt = random.nextInt(101) + 1;
+        regulator = randomNumber.nextInt(6);
+        if(regulator <= 3){
+        newColor = water;
+        }
+        else{
         //int modifier = random.nextInt(6);
         //5 settings: mountain, river, plains, snow, grass
         //mountains to snow to grass to rivers to plains
@@ -125,7 +130,7 @@ public class Island extends JFrame {
                 newColor = plains;
             }
         }
-
+        }
 
         return newColor;
     }
