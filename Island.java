@@ -18,6 +18,8 @@ public class Island extends JFrame implements ActionListener, MouseListener,  Mo
     public int y[] = bank.getY();
     public ArrayList < City > cities = bank.getCities();
     public ArrayList < Road > roads = bank.getRoads();
+    public ArrayList <Rectangle> rectangles  = bank.getRect();
+
     Font font;
     Color roadColor = new Color(120,80,60);
     public Island() {
@@ -36,25 +38,27 @@ public class Island extends JFrame implements ActionListener, MouseListener,  Mo
     }
     
     public void mouseDragged(MouseEvent evt)
-    {
-       System.out.println("yo");
-    }
+    {}
 
     public void mouseMoved(MouseEvent evt){}
-    public void mouseClicked(MouseEvent evt){
-      System.out.println("Click");
-    
-    }
+
     public void mouseEntered(MouseEvent evt){}
     public void mouseExited(MouseEvent evt){}
     public void mousePressed(MouseEvent evt){}
     public void mouseReleased(MouseEvent evt){}
 
-    
+public void mouseClicked(MouseEvent e){
+  System.out.println(rectangles.get(1));
+  System.out.println(e.getPoint());
+    if (rectangles.get(1).contains(e.getPoint())) {
+System.out.print(cities.get(1));
+    }
+}
     public void drawCity(City c, Graphics g, int x, int y) {
         g.setColor(Color.BLACK);
         makeFonts();
         g.setFont(font);
+       
         g.fillRect(x, y, c.sGetter(), c.sGetter());
         g.drawString(c.nGetter(), x, y - 3);
     }

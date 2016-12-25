@@ -1,7 +1,17 @@
+import javax.swing.*;
+import java.awt.event.*;
 import java.util.*;
+import javax.swing.*;
+import java.lang.*;
+import java.awt.*;
+import java.io.*;
+import java.io.InputStream;
+import java.awt.geom.Line2D;
+import java.awt.event.ActionListener;
 class numberBank {
     private ArrayList < City > cities = new ArrayList < > ();
     private ArrayList < Road > roads = new ArrayList < > ();
+        public ArrayList <Rectangle> rectangles  = new ArrayList<Rectangle>();
     int amount = 500000;
     int[] x = new int[amount];
     int[] y = new int[amount];
@@ -35,9 +45,11 @@ class numberBank {
             if(k % (amount/10) == 0){
             int tempY = random.nextInt(amount);
             int tempX = random.nextInt(amount);
-        cities.add(new City(x[k], y[k], 5, new cityNameGenerator().nameGetter(5)));
+            cities.add(new City(x[k], y[k], 5, new cityNameGenerator().nameGetter(5)));
+            rectangles.add(new Rectangle(x[k], y[k],5, 5));
             }
         }
+        
         roads.add(new Road(cities.get(0), cities.get(0), x, y));
         roads.add(new Road(cities.get(3), cities.get(2), x, y));
         roads.add(new Road(cities.get(5), cities.get(4), x, y));
@@ -60,16 +72,14 @@ class numberBank {
 public ArrayList < Road > getRoads() {
         return roads;
     }
+public ArrayList < Rectangle > getRect() {
+        return rectangles;
+    }
     public int getWidth() {
         return width;
     }
     public int getHeight() {
         return height;
     }
-    
-    
-    
-    
-    
-    
+  
 }

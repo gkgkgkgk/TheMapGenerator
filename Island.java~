@@ -7,8 +7,8 @@ import java.awt.*;
 import java.io.*;
 import java.io.InputStream;
 import java.awt.geom.Line2D;
-
-public class Island extends JFrame {
+import java.awt.event.ActionListener;
+public class Island extends JFrame implements ActionListener, MouseListener,  MouseMotionListener {
     public int placeHolderX;
     public int placeHolderY;
     numberBank bank = new numberBank();
@@ -22,6 +22,7 @@ public class Island extends JFrame {
     Color roadColor = new Color(120,80,60);
     public Island() {
         setContentPane(new DrawPane());
+        addMouseListener(this);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -30,7 +31,26 @@ public class Island extends JFrame {
         setSize(width, height);
     }
 
+    public void actionPerformed(ActionEvent event){
+    
+    }
+    
+    public void mouseDragged(MouseEvent evt)
+    {
+       System.out.println("yo");
+    }
 
+    public void mouseMoved(MouseEvent evt){}
+    public void mouseClicked(MouseEvent evt){
+      System.out.println("Click");
+    
+    }
+    public void mouseEntered(MouseEvent evt){}
+    public void mouseExited(MouseEvent evt){}
+    public void mousePressed(MouseEvent evt){}
+    public void mouseReleased(MouseEvent evt){}
+
+    
     public void drawCity(City c, Graphics g, int x, int y) {
         g.setColor(Color.BLACK);
         makeFonts();
@@ -89,14 +109,21 @@ public class Island extends JFrame {
         Color grass = new Color(44, 176, 55);
         Color plains = new Color(255, 196, 0);
         Color mountain = new Color(167, 164, 157);
+        Color mountain2 = new Color(107, 104, 107);
         Color newColor = Color.RED;
         Random random = new Random();
         int switchInt = random.nextInt(101) + 1;
-        regulator = randomNumber.nextInt(6);
-        if(regulator <= 3){
-        newColor = water;
+        if(regulator <= 15){
+          int randMountain = random.nextInt(2);
+          if(randMountain == 1){
+            newColor = mountain;}
+          else{
+            newColor =mountain2;
+          }
+        regulator = randomNumber.nextInt(17);
         }
         else{
+        regulator = randomNumber.nextInt(10000);
         //int modifier = random.nextInt(6);
         //5 settings: mountain, river, plains, snow, grass
         //mountains to snow to grass to rivers to plains
