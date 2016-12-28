@@ -1,2 +1,3 @@
 # TheMapGenerator
 This is a map generator, possibly a prototype for a future board game....
+![alt tag](http://www.w3schools.com/css/trolltunga.jpg)

@@ -49,7 +49,8 @@ class cityNameGenerator {
           "Red",
           "Blue",
           "Wes",
-          "Leo"
+          "Leo",
+          "John"
         };
         String[] suf = {
             "lin",
